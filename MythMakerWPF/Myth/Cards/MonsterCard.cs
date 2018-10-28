@@ -785,7 +785,7 @@ namespace MythMaker.Myth.Cards
                     r.DrawImage(ImageCache.Get("resources/attack-fd.png"), position + new Vector(374.55f - distFD, -3.0f) + bossOffset, Alignment.TopCenter);
                 }
                 r.DrawString(attack.NumberOfAttacks.ToString(), RedBrush, AttackDiceFont, position + new Vector(339.5f, 0.5f) + bossOffset, Rendering.FontStyle.ItalicSemiBold, Alignment.TopCenter);
-                r.DrawImage(ImageCache.Get("resources/attack-hit.png"), position + new Vector(372.0f, -4.5f) + bossOffset, Alignment.TopCenter);
+                r.DrawImage(ImageCache.Get("resources/attack-hit" + attack.HitFactor + ".png"), position + new Vector(372.0f, -4.5f) + bossOffset, Alignment.TopCenter);
                 r.DrawString(attack.TN.ToString(), RedBrush, AttackDiceFont, position + new Vector(414, 0.5f) + bossOffset, Rendering.FontStyle.ItalicSemiBold, Alignment.TopCenter);
                 r.DrawImage(ImageCache.Get("resources/attack-tn.png"), position + new Vector(451, -4.5f) + bossOffset, Alignment.TopCenter);
 
