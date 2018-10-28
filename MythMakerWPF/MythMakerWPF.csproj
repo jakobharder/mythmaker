@@ -298,4 +298,7 @@
     <Resource Include="Resources\attack-tn-white.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy /y /r /s $(ProjectDir)files $(TargetDir)</PostBuildEvent>
+  </PropertyGroup>
 </Project>
