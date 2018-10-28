@@ -1,0 +1,55 @@
+﻿<Window x:Class="MythMaker.UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:pages="clr-namespace:MythMaker.UI.Pages"
+        xmlns:local="clr-namespace:MythMaker.UI"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        Background="#222" 
+        Width="1080"
+        Height="600"
+        Closing="Window_Closing"
+        Loaded="Window_Loaded">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="SharedStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+        </ResourceDictionary>
+    </Window.Resources>
+    
+    <TabControl TabStripPlacement="Left" SelectionChanged="TabControl_SelectionChanged">
+        <TabItem Name="projectPage" Header="Project">
+            <TabItem.Content>
+                <pages:ProjectPage />
+            </TabItem.Content>
+        </TabItem>
+
+        <TabItem Name="itemsPage" Header="Items">
+            <TabItem.Content>
+                <pages:ItemsPage />
+            </TabItem.Content>
+        </TabItem>
+
+        <TabItem Name="monstersPage" Header="Monsters">
+            <TabItem.Content>
+                <pages:MonstersPage />
+            </TabItem.Content>
+        </TabItem>
+        
+        <TabItem Name="exportPage" Header="Export">
+            <TabItem.Content>
+                <pages:ExportPage />
+            </TabItem.Content>
+        </TabItem>
+
+        <TabItem Name="settingsPage" Header="Settings">
+            <TabItem.Content>
+                <pages:SettingsPage />
+            </TabItem.Content>
+        </TabItem>
+    </TabControl>
+</Window>

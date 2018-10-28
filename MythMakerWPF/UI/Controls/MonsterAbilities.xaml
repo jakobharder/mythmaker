@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="MythMaker.UI.Controls.MonsterAbilities"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MythMaker.UI.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="300"
+             MinWidth="300">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../SharedStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <Style TargetType="{x:Type Label}">
+                <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+            </Style>
+            <local:ArrayStringConverter x:Key="ArrayStringConverter" />
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid Background="{StaticResource ControlBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Margin="0,0,0,8">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Content="Abilities" Style="{StaticResource SectionLabel}" />
+
+            <!-- bind TextBox to width of border to prevent growing -->
+            <Border x:Name="Border" Grid.Row="1" />
+            <TextBox Grid.Row="1" AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" 
+                         Height="Auto" MinHeight="52" HorizontalAlignment="Stretch"  VerticalContentAlignment="Top"
+                         Text="{Binding Abilities, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         Width="{Binding ElementName=Border, Path=ActualWidth}"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Content="Immunities" Style="{StaticResource SectionLabel}"/>
+            <TextBox 
+                Grid.Row="1"
+                Text="{Binding Immunities, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, 
+                Converter={StaticResource ArrayStringConverter}}" />
+        </Grid>
+    </Grid>
+</UserControl>

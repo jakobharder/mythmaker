@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="MythMaker.UI.Controls.ItemSpecialsTab"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MythMaker.UI.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="300"
+             Width="338"
+             DataContextChanged="UserControl_DataContextChanged">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../SharedStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <Style TargetType="{x:Type Label}">
+                <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+            </Style>
+            <Style TargetType="{x:Type TextBox}">
+                <Setter Property="Height" Value="26"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+            </Style>
+            <local:ArrayStringConverter x:Key="ArrayStringConverter" />
+            <local:IntStringConverter x:Key="IntStringConverter" />
+            <local:TnFactorToString x:Key="TnFactorToString" />
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid Background="{StaticResource ControlBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Margin="0,0,0,8">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <ScrollViewer Grid.Row="1">
+                <StackPanel x:Name="SpecialStack">
+                    <local:ItemSpecial Width="320" HorizontalAlignment="Left" />
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</UserControl>

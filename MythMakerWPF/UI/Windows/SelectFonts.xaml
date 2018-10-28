@@ -1,0 +1,65 @@
+﻿<Window x:Class="MythMaker.SelectFonts"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MythMaker"
+        mc:Ignorable="d"
+        Title="Select Fonts" Height="492.948" Width="747.487" Loaded="Window_Loaded" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterOwner" ResizeMode="NoResize" ShowInTaskbar="False">
+    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="400" />
+        </Grid.ColumnDefinitions>
+        <Grid.Resources >
+            <Style TargetType="Border" >
+                <Setter Property="Padding" Value="10,10,10,10" />
+            </Style>
+        </Grid.Resources>
+        <Image x:Name="textPreview" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Height="400" VerticalAlignment="Center" Width="400
+               "/>
+        <Border Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+            <StackPanel Orientation="Vertical">
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type ComboBox}">
+                        <Setter Property="Margin" Value="0,0,0,0"/>
+                        <Setter Property="HorizontalAlignment" Value="stretch"/>
+                    </Style>
+                    <Style TargetType="{x:Type Label}">
+                        <Setter Property="Margin" Value="0,10,0,0"/>
+                        <Setter Property="HorizontalAlignment" Value="stretch"/>
+                    </Style>
+                </StackPanel.Resources>
+                <Label Content="Mason Sans" Height="23" VerticalAlignment="Top"/>
+                <ComboBox x:Name="cmbMason" SelectionChanged="comboBox_SelectionChanged" Height="30" VerticalAlignment="Top"/>
+                <Label Content="Helvetica Neue Condensed" Height="23" VerticalAlignment="Top"/>
+                <ComboBox x:Name="cmbHelvetica" SelectionChanged="comboBox_SelectionChanged" Height="30" VerticalAlignment="Top"/>
+                <TextBlock HorizontalAlignment="Left" Height="auto" Margin="4,0,0,0" TextWrapping="Wrap" Text="Arial Narrow is a good alternative for Helvetica Condensed." VerticalAlignment="Top" Width="auto" FontStyle="Italic"/>
+                <Label Content="Helvetica Neue Condensed Medium" Height="23" VerticalAlignment="Top"/>
+                <ComboBox x:Name="cmbHelveticaMd" SelectionChanged="comboBox_SelectionChanged" Height="30" VerticalAlignment="Top"/>
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Margin" Value="5,10,5,0"/>
+                    </Style>
+                </StackPanel.Resources>
+                <Button x:Name="btnOK" Content="OK" Click="btnOK_Click" IsDefault="True" HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" Height="30"/>
+                <Button x:Name="btnCancel" Content="Cancel" IsCancel="True" HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" Height="30"/>
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0" HorizontalAlignment="Stretch">
+            <StackPanel Orientation="Vertical">
+                <Label Content="Select Fonts" HorizontalAlignment="Left" Height="auto" VerticalAlignment="Top" Width="auto" FontSize="24"/>
+                <TextBlock HorizontalAlignment="Left" Height="auto" Margin="4,0,0,0" TextWrapping="Wrap" Text="Select matching fonts. The less red you see the better the match." VerticalAlignment="Top" Width="auto"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
