@@ -213,6 +213,7 @@ namespace MythMaker.Myth.Cards
 
         public ItemCard(MythDocument document) : base(document)
         {
+            Init();
             title = "New Item";
             RenderWorker.Instance.EnqueueCardUpdate(this, CardRenderType.CutFront);
         }
