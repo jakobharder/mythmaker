@@ -108,6 +108,7 @@
     <Compile Include="UI\Controls\MonsterGeneral.xaml.cs">
       <DependentUpon>MonsterGeneral.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\Controls\HintTextBox.cs" />
     <Compile Include="UI\Pages\ExportPage.xaml.cs">
       <DependentUpon>ExportPage.xaml</DependentUpon>
     </Compile>
@@ -184,6 +185,10 @@
     <Page Include="UI\Pages\ProjectPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Styles\HintTextBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="UI\Styles\TextBox.xaml">
       <SubType>Designer</SubType>

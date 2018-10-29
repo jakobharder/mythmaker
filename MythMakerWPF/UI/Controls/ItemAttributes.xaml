@@ -90,12 +90,14 @@
                 <ComboBoxItem Content="Accessory"/>
             </ComboBox>
             <Label Grid.Row="1" Grid.Column="0">Class:</Label>
-            <TextBox Grid.Row="1" Grid.Column="1" Margin="8,0,0,8"
-                     Text="{Binding Class, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, 
-                            Converter={StaticResource ArrayStringConverter}}" />
+            <local:HintTextBox Grid.Row="1" Grid.Column="1" Margin="8,0,0,8"
+                               HintText="e.g. Weapon or Buff"
+                               Text="{Binding Class, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, 
+                                      Converter={StaticResource ArrayStringConverter}}"/>
             <Label Grid.Row="2" Grid.Column="0">Bonus:</Label>
-            <TextBox Grid.Row="2" Grid.Column="1" Margin="8,0,0,8"
-                     Text="{Binding Bonus, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            <local:HintTextBox Grid.Row="2" Grid.Column="1" Margin="8,0,0,8"
+                               HintText="type D10 or FD for dice icons"
+                               Text="{Binding Bonus, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         </Grid>
         <Label Content="Attributes" Style="{StaticResource SectionLabel}" />
         <Grid>
