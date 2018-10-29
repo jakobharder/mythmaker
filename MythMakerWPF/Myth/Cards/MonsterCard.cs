@@ -353,12 +353,11 @@ namespace MythMaker.Myth.Cards
 
         public MonsterCard(MythDocument document) : base(document)
         {
+            Init();
             title = "New Monster";
             AbilityKeywords = ParseAbilities(abilities);
             RenderWorker.Instance.EnqueueCardUpdate(this, CardRenderType.CutFront);
             RenderWorker.Instance.EnqueueCardUpdate(this, CardRenderType.CutBack);
-
-            Init();
         }
 
         void Init()
