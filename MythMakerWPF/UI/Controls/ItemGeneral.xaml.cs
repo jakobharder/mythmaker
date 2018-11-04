@@ -1,28 +1,16 @@
 ﻿using MythMaker.Myth;
 using MythMaker.Myth.Cards;
-using MythMaker.Myth.Elements;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace MythMaker.UI.Controls
 {
     /// <summary>
     /// Interaction logic for MinionGeneral.xaml
     /// </summary>
-    public partial class ItemAttributes : UserControl
+    public partial class ItemGeneral : UserControl
     {
         public event PropertyChangedEventHandler PropertyChanged;
         private ItemCard Card { get { return DataContext as ItemCard; } }
@@ -32,7 +20,7 @@ namespace MythMaker.UI.Controls
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(argument));
         }
 
-        public ItemAttributes()
+        public ItemGeneral()
         {
             InitializeComponent();
         }

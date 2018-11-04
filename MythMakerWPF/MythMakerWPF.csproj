@@ -102,8 +102,8 @@
     <Compile Include="UI\Controls\MonsterAbilities.xaml.cs">
       <DependentUpon>MonsterAbilities.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\Controls\ItemAttributes.xaml.cs">
-      <DependentUpon>ItemAttributes.xaml</DependentUpon>
+    <Compile Include="UI\Controls\ItemGeneral.xaml.cs">
+      <DependentUpon>ItemGeneral.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\Controls\MonsterGeneral.xaml.cs">
       <DependentUpon>MonsterGeneral.xaml</DependentUpon>
@@ -166,7 +166,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UI\Controls\ItemAttributes.xaml">
+    <Page Include="UI\Controls\ItemGeneral.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

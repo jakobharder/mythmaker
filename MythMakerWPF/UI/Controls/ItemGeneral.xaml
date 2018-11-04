@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="MythMaker.UI.Controls.ItemAttributes"
+﻿<UserControl x:Class="MythMaker.UI.Controls.ItemGeneral"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -73,7 +73,6 @@
                          Text="{Binding Path=Picture.UserScalingPercentage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged,
                                 Converter={StaticResource IntStringConverter}}" />
             </Grid>
-            
 
             <Label Grid.Row="3" Content="Color" />
             <ComboBox Grid.Row="3" Grid.Column="1" Margin="8,0,0,8" Height="26" 

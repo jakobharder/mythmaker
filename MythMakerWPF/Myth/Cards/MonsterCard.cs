@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Runtime.Serialization;
 
 namespace MythMaker.Myth.Cards
@@ -520,15 +519,11 @@ namespace MythMaker.Myth.Cards
             // image
             if (Picture != null)
             {
-                // picture
                 Bitmap itemPicture = Picture.Image.GetBitmap(Picture.Scaling);
                 Bitmap itemShadow = DropShadow.CreateShadow(itemPicture, 12, 1.0f, 1.5f);
                 Vector itemPicturePosition = new Vector(816 / 2, 330) + Picture.ImageOffset;
-                if (itemPicture != null)
-                {
-                    r.DrawImage(itemShadow, itemPicturePosition, Alignment.MiddleCenter);
-                    r.DrawImage(itemPicture, itemPicturePosition, Alignment.MiddleCenter);
-                }
+                r.DrawImage(itemShadow, itemPicturePosition, Alignment.MiddleCenter);
+                r.DrawImage(itemPicture, itemPicturePosition, Alignment.MiddleCenter);
             }
 
             // top

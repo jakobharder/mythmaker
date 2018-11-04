@@ -1,20 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Drawing;
-/*using PdfSharp;
-using PdfSharp.Drawing;
-using PdfSharp.Pdf;
-using PdfSharp.Pdf.IO;*/
-using System.Runtime.Serialization;
-using MythMaker.Rendering;
-using System.ComponentModel;
-using System.Windows.Media.Imaging;
-using System.Drawing.Drawing2D;
-using MythMaker.Math;
+﻿using MythMaker.Math;
 using MythMaker.Myth.Elements;
+using MythMaker.Rendering;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.Runtime.Serialization;
 
 namespace MythMaker.Myth.Cards
 {
@@ -264,11 +255,8 @@ namespace MythMaker.Myth.Cards
                 Bitmap itemPicture = Picture.Image.GetBitmap(Picture.Scaling);
                 Bitmap itemShadow = DropShadow.CreateShadow(itemPicture, 12, 1.0f, 1.5f);
                 Vector itemPicturePosition = new Vector(590 / 2 + 0.5f, 257.5f) + Picture.ImageOffset;
-                if (itemPicture != null)
-                {
-                    r.DrawImage(itemShadow, itemPicturePosition, Alignment.MiddleCenter);
-                    r.DrawImage(itemPicture, itemPicturePosition, Alignment.MiddleCenter);
-                }
+                r.DrawImage(itemShadow, itemPicturePosition, Alignment.MiddleCenter);
+                r.DrawImage(itemPicture, itemPicturePosition, Alignment.MiddleCenter);
             }
 
             // item class
