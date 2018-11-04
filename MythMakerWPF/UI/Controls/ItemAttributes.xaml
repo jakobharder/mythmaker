@@ -32,6 +32,7 @@
                 <RowDefinition Height="34"/>
                 <RowDefinition Height="34"/>
                 <RowDefinition Height="34"/>
+                <RowDefinition Height="34"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="70"/>
@@ -50,8 +51,32 @@
                 <Button Grid.Column="1" Margin="8,0,0,8">Import...</Button>
             </Grid>
 
-            <Label Grid.Row="2" Content="Color" />
-            <ComboBox Grid.Row="2" Grid.Column="1" Margin="8,0,0,8" Height="26" 
+            <Grid Grid.Row="2" Grid.Column="1" Margin="4,0,0,8">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Label Content="X:" Grid.Column="0" />
+                <TextBox Grid.Column="1"
+                         Text="{Binding Path=Picture.ImageOffset.X, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged,
+                                Converter={StaticResource IntStringConverter}}" />
+                <Label Content="Y:" Grid.Column="2" Margin="8,0,0,0" />
+                <TextBox Grid.Column="3"
+                         Text="{Binding Path=Picture.ImageOffset.Y, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged,
+                                Converter={StaticResource IntStringConverter}}" />
+                <Label Content="Size:" Grid.Column="4" Margin="8,0,0,0" />
+                <TextBox Grid.Column="5"
+                         Text="{Binding Path=Picture.UserScalingPercentage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged,
+                                Converter={StaticResource IntStringConverter}}" />
+            </Grid>
+            
+
+            <Label Grid.Row="3" Content="Color" />
+            <ComboBox Grid.Row="3" Grid.Column="1" Margin="8,0,0,8" Height="26" 
                       VerticalContentAlignment="Center"
                       Text="{Binding ItemColor, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged,
                              Converter={StaticResource ItemColorToString}}">

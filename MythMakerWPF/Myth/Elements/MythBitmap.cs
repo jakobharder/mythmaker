@@ -64,16 +64,16 @@ namespace MythMaker.Myth
             this.stride = stride;
         }
 
-        public Bitmap GetBitmap(Math.Vector? scaling = null)
+        public Bitmap GetBitmap(Math.Vector scaling = null)
         {
             if (temporary == null)
                 loadBitmap();
 
             Size size;
-            if (!scaling.HasValue)
+            if (scaling == null)
                 size = new Size(width, height);
             else
-                size = new Size((int)(width * scaling.Value.X), (int)(height * scaling.Value.Y));
+                size = new Size((int)(width * scaling.X), (int)(height * scaling.Y));
 
             return GeneratePreview(size);
         }

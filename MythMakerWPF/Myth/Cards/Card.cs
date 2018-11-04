@@ -25,6 +25,13 @@ namespace MythMaker.Myth.Cards
         {
             picture?.Image?.UpdateID(MythDocument.Active.GetResourceID(resourcePrefix + FileTitle) + ".png");
         }
+
+        [OnDeserialized]
+        protected void OnDeserialized(StreamingContext context)
+        {
+            if (picture != null)
+                picture.PropertyChanged += Picture_PropertyChanged;
+        }
         #endregion
 
         #region DataMember Component Properties
@@ -206,10 +213,6 @@ namespace MythMaker.Myth.Cards
                 float scale = System.Math.Min(imageIdealScale.X / bitmap.Width, imageIdealScale.Y / bitmap.Height);
                 picture.ImagePreScaling = new Math.Vector(scale, scale);
             }
-
-            // reset manual scaling & position
-            picture.ImageScaling = new Math.Vector(1, 1);
-            picture.ImageOffset = new Math.Vector(0, 0);
 
             // set the image
             picture.Image = bitmap;
