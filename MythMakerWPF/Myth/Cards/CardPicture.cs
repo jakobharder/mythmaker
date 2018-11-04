@@ -54,7 +54,13 @@ namespace MythMaker.Myth.Cards
 
         public Math.Vector Scaling
         {
-            get { return ImagePreScaling * ImageScaling.X; }
+            get
+            {
+                var scaling = ImagePreScaling * ImageScaling.X;
+                if (scaling.X < 0.0001f | scaling.Y < 0.0001f)
+                    return new Math.Vector(1, 1);
+                return scaling;
+            }
         }
 
         public int UserScalingPercentage

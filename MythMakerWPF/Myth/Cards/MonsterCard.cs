@@ -521,14 +521,13 @@ namespace MythMaker.Myth.Cards
             if (Picture != null)
             {
                 // picture
-                Bitmap itemPicture = Picture.Image.GetBitmap(Picture.ImagePreScaling);
+                Bitmap itemPicture = Picture.Image.GetBitmap(Picture.Scaling);
                 Bitmap itemShadow = DropShadow.CreateShadow(itemPicture, 12, 1.0f, 1.5f);
-                Vector itemPicturePosition = new Vector(816 / 2, 330);
-                Vector itemPictureOffset = new Vector(0, 0);// new PointF(1, 46);
+                Vector itemPicturePosition = new Vector(816 / 2, 330) + Picture.ImageOffset;
                 if (itemPicture != null)
                 {
-                    r.DrawImage(itemShadow, itemPicturePosition + itemPictureOffset, Alignment.MiddleCenter);
-                    r.DrawImage(itemPicture, itemPicturePosition + itemPictureOffset, Alignment.MiddleCenter);
+                    r.DrawImage(itemShadow, itemPicturePosition, Alignment.MiddleCenter);
+                    r.DrawImage(itemPicture, itemPicturePosition, Alignment.MiddleCenter);
                 }
             }
 

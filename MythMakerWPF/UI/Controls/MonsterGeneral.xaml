@@ -35,6 +35,7 @@
                 <RowDefinition Height="34"/>
                 <RowDefinition Height="34"/>
                 <RowDefinition Height="34"/>
+                <RowDefinition Height="34"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="70"/>
@@ -46,24 +47,47 @@
             <Label Grid.Row="1" Grid.Column="0">Picture:</Label>
             <Button Grid.Row="1" Grid.Column="1" Margin="8,0,0,8" Click="OpenPicture_Click">Open PNG...</Button>
 
-            <Label Grid.Row="2" Content="Color" />
-            <Slider Grid.Row="2" Grid.Column="1" Maximum="360" Margin="8,0,0,0" Height="26"
+            <Grid Grid.Row="2" Grid.Column="1" Margin="4,0,0,8">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Label Content="X:" Grid.Column="0" />
+                <TextBox Grid.Column="1"
+                         Text="{Binding Path=Picture.ImageOffset.X, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged,
+                                Converter={StaticResource IntStringConverter}}" />
+                <Label Content="Y:" Grid.Column="2" Margin="8,0,0,0" />
+                <TextBox Grid.Column="3"
+                         Text="{Binding Path=Picture.ImageOffset.Y, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged,
+                                Converter={StaticResource IntStringConverter}}" />
+                <Label Content="Size:" Grid.Column="4" Margin="8,0,0,0" />
+                <TextBox Grid.Column="5"
+                         Text="{Binding Path=Picture.UserScalingPercentage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged,
+                                Converter={StaticResource IntStringConverter}}" />
+            </Grid>
+            
+            <Label Grid.Row="3" Content="Color" />
+            <Slider Grid.Row="3" Grid.Column="1" Maximum="360" Margin="8,0,0,0" Height="26"
                     Value="{Binding ColorHue, Mode=TwoWay}"/>
 
-            <Label Grid.Row="3" Grid.Column="0"
+            <Label Grid.Row="4" Grid.Column="0"
                    Visibility="{Binding AllowsType, 
                         Converter={StaticResource HideOnFalse}}">Type:</Label>
-            <TextBox Grid.Row="3" Grid.Column="1" Margin="8,0,0,8" 
+            <TextBox Grid.Row="4" Grid.Column="1" Margin="8,0,0,8" 
                      Text="{Binding Type, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                      Visibility="{Binding AllowsType, Converter={StaticResource HideOnFalse}}"/>
-            <Label Grid.Row="4" Grid.Column="0">Rank:</Label>
-            <ComboBox x:Name="MonsterRank" Grid.Row="4" Grid.Column="1" Margin="8,0,0,8" Height="26" 
+            <Label Grid.Row="5" Grid.Column="0">Rank:</Label>
+            <ComboBox x:Name="MonsterRank" Grid.Row="5" Grid.Column="1" Margin="8,0,0,8" Height="26" 
                       VerticalContentAlignment="Center" 
                       Text="{Binding Rank, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, 
                             Converter={StaticResource RankStringConverter}}">
             </ComboBox>
-            <Label Grid.Row="5" Grid.Column="0">Class:</Label>
-            <TextBox Grid.Row="5" Grid.Column="1" Margin="8,0,0,8"
+            <Label Grid.Row="6" Grid.Column="0">Class:</Label>
+            <TextBox Grid.Row="6" Grid.Column="1" Margin="8,0,0,8"
                      Text="{Binding Class, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, 
                             Converter={StaticResource ArrayStringConverter}}" />
         </Grid>
