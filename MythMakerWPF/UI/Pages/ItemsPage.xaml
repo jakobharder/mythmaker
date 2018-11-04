@@ -54,7 +54,7 @@
                 <TabItem Name="GeneralAttributes" Header="General">
                     <TabItem.Content>
                         <Grid MinWidth="338" Margin="8,0,8,0">
-                            <controls:ItemAttributes x:Name="ItemAttributes"/>
+                            <controls:ItemGeneral x:Name="ItemAttributes"/>
                         </Grid>
                     </TabItem.Content>
                 </TabItem>

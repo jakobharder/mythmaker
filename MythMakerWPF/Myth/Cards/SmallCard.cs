@@ -11,8 +11,10 @@ namespace MythMaker.Myth.Cards
         }
 
         [OnDeserialized]
-        protected void OnDeserialized(StreamingContext context)
+        protected new void OnDeserialized(StreamingContext context)
         {
+            base.OnDeserialized(context);
+
             cardSize = new System.Drawing.Size(590, 860);
         }
     }

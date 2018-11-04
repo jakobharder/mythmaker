@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
+﻿using System.ComponentModel;
 using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MythMaker.Myth.Cards
 {
@@ -15,19 +10,28 @@ namespace MythMaker.Myth.Cards
         [DataMember(Name = "Image", IsRequired = true)]
         private MythBitmap image;
         [DataMember]
-        public Math.Vector ImageOffset { get; set; }
+        public Math.Vector ImageOffset { get; private set; }
         [DataMember]
-        public Math.Vector ImageScaling { get; set; }
+        private Math.Vector ImageScaling { get; set; }
         [DataMember]
         public Math.Vector ImagePreScaling { get; set; }
 
         [OnDeserialized]
         private void OnDeserialized(StreamingContext context)
         {
-            if (ImagePreScaling.X == 0)
+            if (ImagePreScaling == null || ImagePreScaling.X == 0 || ImagePreScaling.Y == 0)
                 ImagePreScaling = new Math.Vector(1, 1);
-            if (ImageScaling.X == 0)
+            if (ImageScaling == null || ImageScaling.X == 0 || ImageScaling.Y == 0)
                 ImageScaling = new Math.Vector(1, 1);
+            if (ImageOffset == null)
+                ImageOffset = new Math.Vector(0, 0);
+
+            ImageOffset.PropertyChanged += ImageOffset_PropertyChanged;
+        }
+
+        private void ImageOffset_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Image"));
         }
         #endregion
 
@@ -43,12 +47,36 @@ namespace MythMaker.Myth.Cards
         }
         #endregion
 
+        public Math.Vector Scaling
+        {
+            get
+            {
+                var scaling = ImagePreScaling * ImageScaling.X;
+                if (scaling.X < 0.0001f | scaling.Y < 0.0001f)
+                    return new Math.Vector(1, 1);
+                return scaling;
+            }
+        }
+
+        public int UserScalingPercentage
+        {
+            get { return (int)(ImageScaling.X * 100 + 0.5f); }
+            set
+            {
+                ImageScaling.X = value / 100.0f;
+                ImageScaling.Y = value / 100.0f;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Image"));
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public CardPicture()
         {
             ImagePreScaling = new Math.Vector(1, 1);
             ImageScaling = new Math.Vector(1, 1);
+            ImageOffset = new Math.Vector(0, 0);
+            ImageOffset.PropertyChanged += ImageOffset_PropertyChanged;
         }
     }
 }
