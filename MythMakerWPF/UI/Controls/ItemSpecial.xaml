@@ -52,18 +52,23 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Label Content="Text" />
-            <TextBox Grid.Column="1" Margin="8,0,0,8"
-                     Text="{Binding Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                     Height="auto" MinHeight="26" TextWrapping="Wrap" AcceptsReturn="True"/>
+            <Label Content="Text:" />
+            <local:HintTextBox Grid.Column="1" Margin="8,0,0,8"
+                               HintText="special description"
+                               Text="{Binding Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                               Height="auto" MinHeight="26" TextWrapping="Wrap" AcceptsReturn="True"/>
 
-            <Label Grid.Row="1" Content="Fate Dice" />
-            <StackPanel x:Name="FateDicePanel" Grid.Row="1" Grid.Column="1"
-                        Orientation="Horizontal">
-                <ComboBox Width="55" Margin="8,0,0,8" SelectionChanged="ComboBox_SelectionChanged" />
-                <ComboBox Width="55" Margin="8,0,0,8" SelectionChanged="ComboBox_SelectionChanged" />
-                <ComboBox Width="55" Margin="8,0,0,8" SelectionChanged="ComboBox_SelectionChanged" />
-            </StackPanel>
+            <Label Grid.Row="1" Content="Fate Dice:" />
+            <Grid x:Name="FateDicePanel" Grid.Row="1" Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <ComboBox Grid.Column="0" Margin="8,0,0,8" SelectionChanged="ComboBox_SelectionChanged" />
+                <ComboBox Grid.Column="1" Margin="8,0,0,8" SelectionChanged="ComboBox_SelectionChanged" />
+                <ComboBox Grid.Column="2" Margin="8,0,0,8" SelectionChanged="ComboBox_SelectionChanged" />
+            </Grid>
         </Grid>
     </StackPanel>
 </UserControl>

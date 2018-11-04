@@ -38,9 +38,12 @@
                 <ColumnDefinition Width="70"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
+            
             <Label Grid.Row="0" Grid.Column="0">Name:</Label>
-            <TextBox Grid.Row="0" Grid.Column="1" Margin="8,0,0,8" 
-                     Text="{Binding Title, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <local:HintTextBox Grid.Row="0" Grid.Column="1" Margin="8,0,0,8" 
+                               HintText="item name"
+                               Text="{Binding Title, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            
             <Label Grid.Row="1" Grid.Column="0">Picture:</Label>
             <Grid Grid.Row="1" Grid.Column="1">
                 <Grid.ColumnDefinitions>
@@ -74,7 +77,7 @@
                                 Converter={StaticResource IntStringConverter}}" />
             </Grid>
 
-            <Label Grid.Row="3" Content="Color" />
+            <Label Grid.Row="3" Content="Color:" />
             <ComboBox Grid.Row="3" Grid.Column="1" Margin="8,0,0,8" Height="26" 
                       VerticalContentAlignment="Center"
                       Text="{Binding ItemColor, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged,
@@ -160,7 +163,7 @@
             <TextBox Grid.Row="0" Grid.Column="3" Margin="8,0,0,8" 
                      Text="{Binding Vitality, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource IntStringConverter}}"/>
             <Label Grid.Row="1" Grid.Column="0" 
-                   Content="Range" />
+                   Content="Range:" />
             <ComboBox Grid.Row="1" Grid.Column="1" Height="26" Margin="8,0,0,8"
                       Text="{Binding Range, Mode=TwoWay, 
                              Converter={StaticResource RangeToString}}">
@@ -178,11 +181,11 @@
             </ComboBox>
 
             <Label Grid.Row="2" Grid.Column="0" 
-                   Content="Buy" />
+                   Content="Buy:" />
             <TextBox Grid.Row="2" Grid.Column="1" Margin="8,0,0,8" 
                      Text="{Binding BuyValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource IntStringConverter}}"/>
             <Label Grid.Row="2" Grid.Column="2" 
-                   Content="Sell" />
+                   Content="Sell:" />
             <TextBox Grid.Row="2" Grid.Column="3" Margin="8,0,0,8" 
                      Text="{Binding SellValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource IntStringConverter}}"/>
         </Grid>
