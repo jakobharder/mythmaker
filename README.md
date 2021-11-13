@@ -5,3 +5,7 @@ A tool to create cards for the board game [Myth](https://boardgamegeek.com/board
 Written with C# + WPF.
 
 ![](./mythmaker.gif)
+
+## Download
+
+Download latest release from [GitHub releases](https://github.com/jakobharder/mythmaker/releases).
