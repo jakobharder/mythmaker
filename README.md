@@ -1,4 +1,7 @@
-Feel free to contribute.
+# MythMaker
 
-Discussion thread on BGG:
-https://boardgamegeek.com/thread/2067726/mythmaker-myth-card-creator
+A tool to create cards for the board game [Myth](https://boardgamegeek.com/boardgame/140519/myth).
+
+Written with C# + WPF.
+
+![](./mythmaker.gif)
